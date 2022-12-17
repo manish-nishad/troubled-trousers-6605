@@ -11,11 +11,11 @@ import {
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
 
-const Logo = (props: any) => {
+const Logo = (props) => {
   return (
     <svg
       height={32}
@@ -38,10 +38,6 @@ const SocialButton = ({
   children,
   label,
   href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
 }) => {
   return (
     <chakra.button
@@ -65,7 +61,7 @@ const SocialButton = ({
   );
 };
 
-const ListHeader = ({ children }: { children: ReactNode }) => {
+const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
       {children}
@@ -73,31 +69,63 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container as={Stack} maxW={'6xl'} py={10}>
+      <Container as={Stack} maxW={'10l'} py={10}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
-          spacing={8}>
+          templateColumns={{ sm: '1fr 1fr 1fr', md: '1fr 1fr 1fr 1fr 1fr 1fr' }}
+          spacing={5}>
           
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Testimonials</Link>
+            <ListHeader>Customer Service</ListHeader>
+            <Link href={'#'}>Contact Us</Link>
+            <Link href={'#'}>Order Status</Link>
+            <Link href={'#'}>Shipping</Link>
+            <Link href={'#'}>Return Policy & Exchange</Link>
+            <Link href={'#'}>Price Adjustments</Link>
+            <Link href={'#'}>Gift Cards</Link>
+            <Link href={'#'}>FAQ</Link>
+            <Link href={'#'}>Products Recalls</Link>
+            <Link href={'#'}>India</Link>
+          </Stack>
+          <Stack align={'baseline'}>
+            <ListHeader>About Us</ListHeader>
+            <Link href={'#'}>All Brands</Link>
+            <Link href={'#'}>Careers</Link>
+            <Link href={'#'}>Corporte Social</Link>
+            <Link href={'#'}>Inclusion & Belonging</Link>
+            <Link href={'#'}>Get Email Updates</Link>
+            <Link href={'#'}>Nordstrom Blog</Link>
+            <Link href={'#'}>The Thread</Link>
+            <Link href={'#'}>Nordy Podcast</Link>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Legal</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-            <Link href={'#'}>Satus</Link>
+            <ListHeader>Store & Services</ListHeader>
+            <Link href={'#'}>Find a Store</Link>
+            <Link href={'#'}>Free Style Help</Link>
+            <Link href={'#'}>Alterations & Tailoring</Link>
+            <Link href={'#'}>Pop-In Shop</Link>
+            <Link href={'#'}>Virtual Events</Link>
+            <Link href={'#'}>Spa Nordstrom</Link>
+            <Link href={'#'}>Nordstrom Restaurants</Link>
+            <Link href={'#'}>Nordstrom Local</Link>
+          </Stack>
+          <Stack align={'flex-start'}>
+            <ListHeader>Nordstrom Rewards</ListHeader>
+            <Link href={'#'}>Nordy Club Reward</Link>
+            <Link href={'#'}>Pay My Bill</Link>
+            <Link href={'#'}> Nordstrom Card</Link>
+          </Stack>
+          <Stack align={'flex-start'}>
+            <ListHeader>Nordstrom, Inc.</ListHeader>
+            <Link href={'#'}>Nordstrom Rack</Link>
+            <Link href={'#'}>Nordstrom Canada</Link>
+            <Link href={'#'}>Investor Relations</Link>
+            <Link href={'#'}>Press Releases</Link>
+            <Link href={'#'}>Nordstrom Media Network</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>
