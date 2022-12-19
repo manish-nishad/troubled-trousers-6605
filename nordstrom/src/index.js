@@ -3,24 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react'
-import { BrowserRouter } from 'react-router-dom'
-import AuthContextProvider from './Context/AuthContext/AuthContext';
-import CartProvider from './Context/CartContext/CartProvider';
-
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <AuthContextProvider>
-    <ChakraProvider>
-      <CartProvider>
-     <App />
-    </CartProvider>
-    </ChakraProvider>
-    </AuthContextProvider>
-    </BrowserRouter>
+        <Provider store={store}>
+           <App />
+         </Provider>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
