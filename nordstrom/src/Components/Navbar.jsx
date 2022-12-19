@@ -1,116 +1,231 @@
 import {
   Box,
-  Flex,
-  Text,
-  IconButton,
   Button,
-  Stack,
-  Collapse,
-  useColorModeValue,
-  useBreakpointValue,
+  Container,
+  Flex,
+  Img,
+  Menu,
+  MenuButton,
+  MenuList,
+  Text,
   useDisclosure,
-  Input,
-  InputGroup,
-  InputLeftElement
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
+import React from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
-  HamburgerIcon,
-  SearchIcon,
-  CloseIcon,
-} from '@chakra-ui/icons';
-
-
-export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
-
+  faCartShopping,
+  faContactBook,
+  faHeart,
+  faIdCard,
+  faLock,
+  faMailBulk,
+  faShippingFast,
+  faShoppingBag,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
+import Searchbar from "./Searchbar";
+import Login from "../Pages/Login";
+import { CartContext } from "../Context/CartContext/CartProvider";
+function Navbar() {
+  const { state } = React.useContext(CartContext)
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  let activeStyle = {
+    color: "red",
+    fontWeight: "500",
+    fontSize: "18px",
+    borderBottom: "2px solid red",
+  };
+  let unactiveStyle = {
+    fontSize: "18px",
+    fontWeight: "500"
+  };
   return (
-    <Box>
-      <Text background={'black'} color={'white'} padding='2'>
-      Shipping outside of the U.S. or Canada? Learn About International Shipping
-      </Text>
-      <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+    <Box   bg='white' shadow={'md'}>
+      <Box px={5}>
         <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Shopping Alpha
-          </Text>
+          borderBottom={"1px solid gray"}
+          px={8}
+          py={{ base: 4, md: 8 }}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Box>
+            <NavLink to="/">
+              <Img
+                w={"280px"}
+                src="https://i.ibb.co/SmRZ6JC/nordstrom-logo.jpg"
+              />
+            </NavLink>
+          </Box>
+          <Box w={"50%"} mx={4}>
+            <Searchbar/>
+          </Box>
+          <Flex alignItems={"center"}>
+            <Menu isOpen={isOpen}>
+              <MenuButton
+                variant="ghost"
+                mx={2}
+                borderRadius={5}
+                aria-label="Courses"
+                fontWeight="normal"
+                onMouseEnter={onOpen}
+                onMouseLeave={onClose}
+              >
+                Sign Up {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+              </MenuButton>
+              <MenuList p={4} onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <NavLink to="/register">
+                  <Button
+                    onClick={onClose}
+                    _hover={{ bg: "rgb(88, 88, 88)" }}
+                    bg={"black"}
+                    color="white"
+                    px={8}
+                  >
+                    Sign In | Create Account
+                  </Button>
+                </NavLink>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            {/* <DesktopNav /> */}
-            <Stack spacing={4}>
-            <InputGroup>
-              <InputLeftElement
-                pointerEvents='none'
-                children={<SearchIcon color='gray.300' />}
-                />
-              <Input type='tel' placeholder='Search for Products or Brand' />
-            </InputGroup>
-            </Stack>
+                <Box textAlign={"left"}>
+                  <Text mx={3} fontWeight={600}>
+                    Account
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faShoppingBag} /> Purchase
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faHeart} /> Wish List
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faShippingFast} /> Shipping Address
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faIdCard} /> Payment Method
+                  </Text>
+                  <br />
+                  <Text mx={3} fontWeight={600}>
+                    Account-Settings
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faLock} /> Password & Personal Info
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faMailBulk} /> Email & Mail Prefrence
+                  </Text>
+                  <br />
+                  <Text mx={3} fontWeight={600}>
+                    We're here to help, 24/7
+                  </Text>
+                  <Text
+                    p={2}
+                    _hover={{
+                      borderRadius: "5px",
+                      bg: "gray.100",
+                      color: "red",
+                      cursor: "pointer",
+                    }}
+                    mx={3}
+                  >
+                    <FontAwesomeIcon icon={faContactBook} /> Contact Us
+                  </Text>
+                </Box>
+              </MenuList>
+            </Menu>
+            <NavLink to="/cart">
+              {state.length > 0 ? <Box position={'absolute'} w="25px" textAlign={"center"} h={"25px"} borderRadius="50%" bg='red' color={'white'} m={'-15px 20px'}>{state.length}</Box>:null}
+            
+            <FontAwesomeIcon cursor={"pointer"} icon={faCartShopping} />
+              </NavLink>
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Sign Up
-          </Button>
-        </Stack>
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity>
-        {/* <MobileNav /> */}
-      </Collapse>
-
-
-      {/* Child Navbar  */}
-      
-
+      </Box>
+      <Container>
+        <Flex
+          px={8}
+          py={4}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}
+            end
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/mens"
+            style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}
+          >
+            Mens
+          </NavLink>
+          <NavLink
+            to="/womens"
+            style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}
+          >
+            Womens
+          </NavLink>
+          <Login activeStyle={activeStyle} unactiveStyle={unactiveStyle}/>
+        </Flex>
+      </Container>
+     
     </Box>
-   
   );
 }
 
+export default Navbar;
