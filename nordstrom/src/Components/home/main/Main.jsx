@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Megha from "../../Meghamenu/Megha";
 import Modals from "../../Navbar/Modals";
-import Descpage from "../descrip/Descpage";
 import { Example } from "../Dialoguebox/Popup";
 import {
   WomenJeans,

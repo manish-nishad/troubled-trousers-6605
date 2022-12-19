@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { signInFn } from "../../Redux/Data/Action";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const SignIn = () => {
   const navigate = useNavigate();

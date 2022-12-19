@@ -7,8 +7,6 @@ import Button from "@mui/material/Button";
 import { mainState_true, signout } from "../../Redux/Data/Action";
 import { useDispatch, useSelector } from "react-redux";
 import { mainState_false } from "../../Redux/Data/Action";
-import Modals from "./Modals";
-import Megha from "../Meghamenu/Megha";
 
 // import CreateAcc from "./CreateAcc";
 
