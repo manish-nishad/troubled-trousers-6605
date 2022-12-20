@@ -1,3 +1,62 @@
+# Nordstrome-clone
+
+
+## Task
+
+Our task is that we have to create a pixel perfext clone of the famous E-ecommerce website Nordstrom with basic functionalities and good looking user interface.
+
+## Making
+
+I am a student of a Full Stack Web Development course offered by Masai School. During our construct week, I was assigned a task to create a clone of Nordstrom official website. After some meetings and discussions, we started working on it and completed all the given tasks in 5 days.
+
+**Deploy Link :- **https://lustrous-shortbread-3a021b.netlify.app
+
+## Landing Page
+
+<img src="https://i.postimg.cc/dQNzchKz/Capture-1.jpg" />
+
+## Middle Section
+
+<img src="https://i.postimg.cc/Jn19MJ0W/Capture-2.jpg"/>
+<br/>
+<img src="https://i.postimg.cc/ZK9XbJb0/Capture-3.jpg"/>
+
+
+## Login
+
+<img src="https://i.postimg.cc/C1m911nn/Capture-5.jpg"/>
+
+## Product Page
+
+<img src="https://i.postimg.cc/3NNVDT2S/Capture-4.jpg"/>
+
+## User Details Page
+
+<img src="https://i.postimg.cc/XqPhfz8V/Capture-6.jpg" />
+
+
+**IDE & TECH TOOL**
+
+- GITHUB
+- VS CODE
+- NPM
+- NETLIFY
+
+**TECHNOLOGIES**
+
+
+- HTML
+- CSS
+- React JS
+- Chakra UI
+- JSON Server
+
+Thank You !
+
+TEAM Nordstrom.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
